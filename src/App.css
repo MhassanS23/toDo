@@ -1,0 +1,205 @@
+body{
+  background-color: white;
+  color:black;
+}
+
+.App{
+  text-align: center;
+}
+
+.taskBg{
+  background-color: white;
+  border-radius: 0.1rem;
+  border: 1px solid #bebbbf;
+  margin-bottom: 1rem;
+  padding: 10px 140px 10px 15px;
+  text-align: left;
+  font-size: 22px;
+  position: relative;
+}
+
+.taskBg .taskText{
+  flex: 1;
+}
+
+.taskBg .done .taskText{
+  text-decoration: line-through;
+  color: red;
+}
+
+.taskBg div{
+  display: flex;
+  align-items: center;
+}
+
+.taskBg .iconsWrap{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 1rem;
+  width: auto;
+  display: inline-block;
+}
+
+.taskBg .iconsWrap span{
+  display: inline-block;
+  margin: 0 10px 0 10px;
+  cursor: pointer;
+}
+
+.taskBg .iconsWrap .sampah{
+  color: red;
+}
+
+.taskBg .iconsWrap .pulpen{
+  color: orange;
+}
+
+.taskBg .iconsWrap .cek{
+  color: green;
+}
+
+.taskBg .iconsWrap span:hover{
+  color: black;
+}
+
+.col-auto .tombol-submit{
+  width: 100%;
+  margin-top: 1rem;
+  padding: 0.5rem 0;
+  background-color: #21958f;
+  color: white;
+  border: none;
+  border-radius: 0.2rem;
+}
+
+.col-auto .tombol-submit:hover{
+  background-color: #b3bab9;
+  color: black;
+  border: 1px solid #d9e0df;
+}
+
+.add-form{
+  display: grid;
+  grid-template-columns: 5% 95%;
+}
+
+.col .buku{
+  width: 100%;
+  background-color: #21958f;
+  color: white;
+  padding: 1rem 0.9rem;
+  border-radius: 0.2rem;
+}
+
+.form-control-add{
+  border-radius: 0.3rem;
+}
+
+.pembagi{
+  display: grid;
+  grid-template-columns: 60% 40%;
+}
+
+.container-search{
+  display: grid;
+  grid-template-columns: 50% 50%;
+  padding: 1rem;
+  border: 1px solid #b3bab9;
+}
+
+.row .tombol-search{
+  width: 100%;
+  margin-top: 1rem;
+  padding: 0.5rem 0;
+  background-color: #21958f;
+  color: white;
+  border: none;
+  border-radius: 0.2rem;
+}
+
+.form-control-search{
+  width: 100%;
+}
+
+.search-form{
+  display: grid;
+  grid-template-columns: 10% 90%;
+}
+
+.cari{
+  width: 100%;
+  background-color: #21958f;
+  color: white;
+  padding: 1rem 0.9rem;
+  border-radius: 0.2rem;
+}
+
+.tombol-add{
+  width: 40%;
+  margin-top: 4.2rem;
+  margin-left: 12rem;
+  padding: 0.5rem 0;
+  background-color: #21958f;
+  color: white;
+  border: none;
+  border-radius: 0.2rem;
+}
+
+.row .tombol-add:hover{
+  background-color: #b3bab9;
+  color: black;
+  border: 1px solid #d9e0df;
+}
+
+.row .tombol-search:hover{
+  background-color: #b3bab9;
+  color: black;
+  border: 1px solid #d9e0df;
+}
+
+.container-button{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3.5rem;
+}
+
+.tombol-todo{
+  width: 100%;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  padding: 0.5rem 0;
+  background-color: #21958f;
+  color: white;
+  border: none;
+  border-radius: 0.2rem;
+}
+
+.container-button .tombol-todo:hover{
+  background-color: #b3bab9;
+  color: black;
+  border: 1px solid #d9e0df;
+}
+
+.container-button2{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3.5rem;
+}
+
+.tombol-todo2{
+  width: 100%;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  padding: 0.5rem 0;
+  background-color: #ce242c;
+  color: white;
+  border: none;
+  border-radius: 0.2rem;
+}
+
+.container-button2 .tombol-todo2:hover{
+  background-color: #b3bab9;
+  color: black;
+  border: 1px solid #d9e0df;
+}
