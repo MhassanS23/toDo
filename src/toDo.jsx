@@ -8,7 +8,7 @@ import {Routes, Route, Link, useNavigate} from 'react-router-dom'
 
 const ToDo = ({toDo, markDone, setUpdateData, deleteTask, deleteAllTask}) => {
   const navigate = useNavigate()
-  const clickUpdate = (e) =>{
+  const clickUpdate = () =>{
     navigate('/link-update');
   };
   const clickHandler = () =>{
@@ -81,7 +81,9 @@ const ToDo = ({toDo, markDone, setUpdateData, deleteTask, deleteAllTask}) => {
                       </span>
       
                       {task.status ? null :(
-                        <span className="pulpen" title="Edit" onClick={()=> {setUpdateData({
+                        <span className="pulpen" title="Edit" onClick={()=> {
+                          navigate('/link-update')
+                          setUpdateData({
                             id: task.id,
                             title: task.title,
                             status: task.status ? true : false

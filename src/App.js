@@ -18,6 +18,7 @@ function App() {
   const [updateData, setUpdateData] = useState('');
   const [newTask, setNewTask] = useState('');
   const [search, setSearch] = useState('');
+  const navigate = useNavigate()
 
   const addTask = (id) => {
     if(newTask){
@@ -25,6 +26,7 @@ function App() {
       let newEntry = {id: num, title: newTask, status: false}
       setToDo([...toDo, newEntry])
       setNewTask('');
+      navigate('/');
     }
   }
 
@@ -67,6 +69,7 @@ function App() {
     let updatedObject = [...filterRecords, updateData]
     setToDo(updatedObject);
     setUpdateData('');
+    navigate('/');
   }
 
   return (
@@ -81,27 +84,30 @@ function App() {
           deleteAllTask = {deleteAllTask}
         />}/>
 
-      <Route path='/link-add' element={
-        <AddTaskForm
-        newTask={newTask}
-        setNewTask={setNewTask}
-        addTask={addTask}
-        />
-      }/>
-
-      <Route path='/link-update' element={<UpdateForm
-        updateData = {updateData}
-        changeTask = {changeTask}
-        updateTask = {updateTask}
-        cancelUpdate = {cancelUpdate}
-      />}/>
+      {updateData && updateData ? (
+        <Route path='/link-update' element={
+        <UpdateForm
+          updateData = {updateData}
+          changeTask = {changeTask}
+          updateTask = {updateTask}
+          cancelUpdate = {cancelUpdate}
+        />}/>
+      ) : (
+        <Route path='/link-add' element={
+          <AddTaskForm
+          newTask={newTask}
+          setNewTask={setNewTask}
+          addTask={addTask}
+          />
+        }/>
+      )
+    }
+       
       </Routes>
-      
 
     
       
     </div>
   );
 }
-
 export default App;

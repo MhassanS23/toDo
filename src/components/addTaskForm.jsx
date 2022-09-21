@@ -7,10 +7,6 @@ import {
 
 
 const AddTaskForm = ({  newTask, setNewTask, addTask  }) => {
-  const navigate = useNavigate()
-  const clickAdd = (e) =>{
-    navigate('/')
-  };
     return(
         <> 
         <br></br>
@@ -33,7 +29,7 @@ const AddTaskForm = ({  newTask, setNewTask, addTask  }) => {
             </div>
           </div>
             <div className="col-auto">
-              <Button onClick={clickAdd()} className="tombol-submit" as="input" type="submit" value="Submit" />
+              <Button onClick={addTask} className="tombol-submit" as="input" type="submit" value="Submit" />
             </div>
           <br/>
         </>
