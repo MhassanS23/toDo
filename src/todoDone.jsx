@@ -6,7 +6,7 @@ import {
 import Button from 'react-bootstrap/Button';
 import {Routes, Route, Link, useNavigate} from 'react-router-dom'
 
-const ToDo = ({toDo, markDone, setUpdateData, deleteTask, deleteAllTask, deleteDoneTask}) => {
+const TodoDone = ({toDo, markDone, setUpdateData, deleteTask}) => {
   const navigate = useNavigate()
   const clickDone = () =>{
     navigate('/link-done');
@@ -112,12 +112,8 @@ const ToDo = ({toDo, markDone, setUpdateData, deleteTask, deleteAllTask, deleteD
           )
         })
     }
-            <div className="container-button2">
-            <Button onClick={() => deleteDoneTask(toDo.status)} className="tombol-todo2" as="input" type="submit" value="Delete Done Task" />
-            <Button onClick={deleteAllTask} className="tombol-todo2" as="input" type="submit" value="Delete All Task" />
-            </div>
     </>
     )
 }
 
-export default ToDo;
+export default TodoDone;

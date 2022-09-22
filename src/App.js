@@ -2,19 +2,18 @@ import {useState} from 'react';
 import AddTaskForm from './components/addTaskForm.jsx';
 import UpdateForm from './components/updateForm.jsx';
 import ToDo from './toDo.jsx';
+import todoDone from './todoDone.jsx';
 // import ToDo from './components/toDo.jsx';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Routes, Route, Link, useNavigate} from 'react-router-dom'
 
 import './App.css';
 
+import data from './data.json'
+
 
 function App() {
-  const [toDo, setToDo] = useState([
-    {'id': 1, 'title': 'task 1', 'status': false},
-    {'id': 2, 'title': 'task 2', 'status': false},
-    {'id': 3, 'title': 'task 3', 'status': false}
-  ]);
+  const [toDo, setToDo] = useState(data);
   const [updateData, setUpdateData] = useState('');
   const [newTask, setNewTask] = useState('');
   const [search, setSearch] = useState('');
@@ -39,7 +38,10 @@ function App() {
     setToDo([]);
   }
 
-  
+  const deleteDoneTask = (id) =>{
+    let newTask = toDo.filter(task => task.status !== true)
+    setToDo(newTask);
+  }
 
   const markDone = (id) =>{
     let newTask = toDo .map(task =>{
@@ -53,6 +55,7 @@ function App() {
 
   const cancelUpdate = () =>{
     setUpdateData('');
+    navigate('/');
   }
 
   const changeTask = (e) =>{
@@ -82,7 +85,15 @@ function App() {
           setUpdateData = {setUpdateData}
           deleteTask = {deleteTask}
           deleteAllTask = {deleteAllTask}
+          deleteDoneTask = {deleteDoneTask}
         />}/>
+
+        {/* <Route path='/link-done' element={<todoDone
+          toDo = {toDo}
+          markDone = {markDone}
+          setUpdateData = {setUpdateData}
+          deleteTask = {deleteTask}
+        />}/> */}
 
       {updateData && updateData ? (
         <Route path='/link-update' element={
