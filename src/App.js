@@ -2,7 +2,8 @@ import {useState} from 'react';
 import AddTaskForm from './components/addTaskForm.jsx';
 import UpdateForm from './components/updateForm.jsx';
 import ToDo from './toDo.jsx';
-import todoDone from './todoDone.jsx';
+import Done from './done.jsx';
+import Uncomplete from './uncomplete.jsx'
 // import ToDo from './components/toDo.jsx';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Routes, Route, Link, useNavigate} from 'react-router-dom'
@@ -16,7 +17,7 @@ function App() {
   const [toDo, setToDo] = useState(data);
   const [updateData, setUpdateData] = useState('');
   const [newTask, setNewTask] = useState('');
-  const [search, setSearch] = useState('');
+  const [searcH, setSearch] = useState('');
   const navigate = useNavigate()
 
   const addTask = (id) => {
@@ -44,7 +45,7 @@ function App() {
   }
 
   const markDone = (id) =>{
-    let newTask = toDo .map(task =>{
+    let newTask = toDo.map(task =>{
       if(task.id === id){
         return({ ...task, status: !task.status})
       }
@@ -75,6 +76,23 @@ function App() {
     navigate('/');
   }
 
+  const searchs = (search) => {
+    if (search !== "") {
+      searcH = toDo;
+      setSearch = searcH.filter( todo => {
+        const lc = todo.title.toLowerCase();
+        const filter = search.toLowerCase();
+        return lc.includes(filter);
+      });
+    } else {
+     setSearch = toDo;
+    }
+    // this.setState({
+    //   filtered: newList
+    // });
+    console.log(search);
+  };
+
   return (
     <div className="container App">
       
@@ -86,14 +104,28 @@ function App() {
           deleteTask = {deleteTask}
           deleteAllTask = {deleteAllTask}
           deleteDoneTask = {deleteDoneTask}
+          searchs={searchs}
         />}/>
 
-        {/* <Route path='/link-done' element={<todoDone
+        <Route path='link-done' element={
+        <Done
           toDo = {toDo}
           markDone = {markDone}
           setUpdateData = {setUpdateData}
           deleteTask = {deleteTask}
-        />}/> */}
+          deleteAllTask = {deleteAllTask}
+          deleteDoneTask = {deleteDoneTask}
+        />}/>
+
+        <Route path='link-uncomplete' element={
+        <Uncomplete
+          toDo = {toDo}
+          markDone = {markDone}
+          setUpdateData = {setUpdateData}
+          deleteTask = {deleteTask}
+          deleteAllTask = {deleteAllTask}
+          deleteDoneTask = {deleteDoneTask}
+        />}/>
 
       {updateData && updateData ? (
         <Route path='/link-update' element={

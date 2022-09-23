@@ -6,13 +6,19 @@ import {
 import Button from 'react-bootstrap/Button';
 import {Routes, Route, Link, useNavigate} from 'react-router-dom'
 
-const TodoDone = ({toDo, markDone, setUpdateData, deleteTask}) => {
+const TodoDone = ({toDo, markDone, setUpdateData, deleteTask, deleteAllTask, deleteDoneTask}) => {
   const navigate = useNavigate()
   const clickDone = () =>{
     navigate('/link-done');
   };
   const clickHandler = () =>{
     navigate('/link-add')
+  };
+  const clickHome = () =>{
+    navigate('/')
+  };
+  const clickUncomplete = () =>{
+    navigate('/link-uncomplete')
   };
     return(
     <>
@@ -28,6 +34,7 @@ const TodoDone = ({toDo, markDone, setUpdateData, deleteTask}) => {
                 </div>
                 <div className="col">
                     <input
+                    // onChange={(e) => searchs(toDo.title)}
                     placeholder="Search"
                     className="form-control form-control-lg form-control-search"
                     />
@@ -56,17 +63,16 @@ const TodoDone = ({toDo, markDone, setUpdateData, deleteTask}) => {
     <br></br>
 
      {/* {displaytodo} */}
-     <h2>TodoList</h2>
+     <h2>TodoDone</h2>
 
     <div className="container-button">
-      <Button className="tombol-todo" as="input" type="submit" value="All" />
+      <Button onClick={clickHome} className="tombol-todo" as="input" type="submit" value="All" />
       <Button onClick={clickDone} className="tombol-todo" as="input" type="submit" value="Done" />
-      <Button className="tombol-todo" as="input" type="submit" value="Todo" />
+      <Button onClick={clickUncomplete} className="tombol-todo" as="input" type="submit" value="Todo" />
     </div>
 
-    {toDo && toDo.length ? '' : 'No Task....'}
       {toDo && toDo
-        .sort((a,b) => a.id > b.id ? 1 : -1)
+        .filter((task)=>task.status === true)
         .map((task, index)=>{
           return(
             <React.Fragment key={task.id}>
@@ -112,6 +118,10 @@ const TodoDone = ({toDo, markDone, setUpdateData, deleteTask}) => {
           )
         })
     }
+            <div className="container-button2">
+            <Button onClick={() => deleteDoneTask(toDo.status)} className="tombol-todo2" as="input" type="submit" value="Delete Done Task" />
+            <Button onClick={deleteAllTask} className="tombol-todo2" as="input" type="submit" value="Delete All Task" />
+            </div>
     </>
     )
 }

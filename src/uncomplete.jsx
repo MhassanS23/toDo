@@ -6,7 +6,7 @@ import {
 import Button from 'react-bootstrap/Button';
 import {Routes, Route, Link, useNavigate} from 'react-router-dom'
 
-const ToDo = ({toDo, markDone, setUpdateData, deleteTask, deleteAllTask, deleteDoneTask}) => {
+const Uncomplete = ({toDo, markDone, setUpdateData, deleteTask, deleteAllTask, deleteDoneTask}) => {
   const navigate = useNavigate()
   const clickDone = () =>{
     navigate('/link-done');
@@ -63,7 +63,7 @@ const ToDo = ({toDo, markDone, setUpdateData, deleteTask, deleteAllTask, deleteD
     <br></br>
 
      {/* {displaytodo} */}
-     <h2>TodoList</h2>
+     <h2>TodoUncomplete</h2>
 
     <div className="container-button">
       <Button onClick={clickHome} className="tombol-todo" as="input" type="submit" value="All" />
@@ -71,9 +71,8 @@ const ToDo = ({toDo, markDone, setUpdateData, deleteTask, deleteAllTask, deleteD
       <Button onClick={clickUncomplete} className="tombol-todo" as="input" type="submit" value="Todo" />
     </div>
 
-    {toDo && toDo.length ? '' : 'No Task....'}
       {toDo && toDo
-        .sort((a,b) => a.id > b.id ? 1 : -1)
+        .filter((task)=>task.status === false)
         .map((task, index)=>{
           return(
             <React.Fragment key={task.id}>
@@ -119,7 +118,6 @@ const ToDo = ({toDo, markDone, setUpdateData, deleteTask, deleteAllTask, deleteD
           )
         })
     }
-
             <div className="container-button2">
             <Button onClick={() => deleteDoneTask(toDo.status)} className="tombol-todo2" as="input" type="submit" value="Delete Done Task" />
             <Button onClick={deleteAllTask} className="tombol-todo2" as="input" type="submit" value="Delete All Task" />
@@ -128,4 +126,4 @@ const ToDo = ({toDo, markDone, setUpdateData, deleteTask, deleteAllTask, deleteD
     )
 }
 
-export default ToDo;
+export default Uncomplete;
