@@ -4,7 +4,6 @@ import {
   faSquare,
   faPen,
   faTrashCan,
-  faSearch,
   faCheckSquare,
 } from "@fortawesome/free-solid-svg-icons";
 import { FaSearch } from "react-icons/fa";
@@ -97,7 +96,7 @@ const TodoDone = ({
         toDo
           .filter((task) => task.status === true)
           .filter((item)=>{
-            return searcH.toLowerCase() === '' ? item : item.title.toLowerCase().includes(searcH)
+            return searcH.toLowerCase() === '' ? item : item.title.toLowerCase().includes(searcH.toLowerCase())
           })
           .map((task) => {
             return (

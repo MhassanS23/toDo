@@ -4,11 +4,10 @@ import {
   faSquare,
   faPen,
   faTrashCan,
-  faSearch,
   faCheckSquare,
 } from "@fortawesome/free-solid-svg-icons";
 import Button from "react-bootstrap/Button";
-import { Routes, Route, Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { FaSearch } from "react-icons/fa";
 
 const ToDo = ({
@@ -98,7 +97,7 @@ const ToDo = ({
         toDo
           .sort((a, b) => (a.id > b.id ? 1 : -1))
           .filter((item)=>{
-            return searcH.toLowerCase() === '' ? item : item.title.toLowerCase().includes(searcH)
+            return searcH.toLowerCase() === '' ? item : item.title.toLowerCase().includes(searcH.toLowerCase())
           })
           .map((task) => {
             return (

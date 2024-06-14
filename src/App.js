@@ -6,7 +6,7 @@ import Done from "./pages/done.jsx";
 import Uncomplete from "./pages/uncomplete.jsx";
 // import ToDo from './components/toDo.jsx';
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Routes, Route, Link, useNavigate } from "react-router-dom";
+import { Routes, Route, useNavigate } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
 
 import "./App.css";
