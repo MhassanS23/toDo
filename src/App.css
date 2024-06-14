@@ -1,10 +1,38 @@
-body{
-  background-color: white;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+body {
+  background-color: whitesmoke;
   color:black;
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
 }
 
 .App{
   text-align: center;
+}
+
+.flex{
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.flex-search{
+  display: flex;
+  align-items: center;
+}
+
+.container-button-search{
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
 }
 
 .taskBg{
@@ -84,7 +112,7 @@ body{
   width: 100%;
   margin-top: 1rem;
   padding: 0.5rem 0;
-  background-color: #21958f;
+  background-color: #7856ff;
   color: white;
   border: none;
   border-radius: 0.2rem;
@@ -97,16 +125,35 @@ body{
 }
 
 .add-form{
-  display: grid;
-  grid-template-columns: 5% 95%;
+  display: flex;
+  align-items: center;
+  height: 2.3rem;
 }
 
-.col .buku{
-  width: 100%;
-  background-color: #21958f;
+.add-form .buku{
+  padding: 0.5rem;
+  width: 20%;
+  height: 100%;
+  background-color: #7856ff;
   color: white;
-  padding: 1rem 0.9rem;
-  border-radius: 0.2rem;
+  border-radius: 0.3rem 0 0 0.3rem;
+}
+
+.container-search .cari{
+  padding: 0.5rem;
+  width: 20%;
+  height: 2.3rem;
+  background-color: #7856ff;
+  color: white;
+  border-radius: 0.3rem 0 0 0.3rem;
+}
+
+.add-form .form-control{
+  border-radius: 0 0.3rem 0.3rem 0;
+}
+
+.container-search .form-control{
+  border-radius: 0 0.3rem 0.3rem 0;
 }
 
 .form-control-add{
@@ -119,8 +166,6 @@ body{
 }
 
 .container-search{
-  display: grid;
-  grid-template-columns: 50% 50%;
   padding: 1rem;
   border: 1px solid #b3bab9;
 }
@@ -129,7 +174,7 @@ body{
   width: 100%;
   margin-top: 1rem;
   padding: 0.5rem 0;
-  background-color: #21958f;
+  background-color: #7856ff;
   color: white;
   border: none;
   border-radius: 0.2rem;
@@ -146,20 +191,17 @@ body{
 
 .cari{
   width: 100%;
-  background-color: #21958f;
+  background-color: #7856ff;
   color: white;
   padding: 1rem 0.9rem;
   border-radius: 0.2rem;
 }
 
 .tombol-add{
-  width: 40%;
-  margin-top: 4.2rem;
-  margin-left: 12rem;
-  padding: 0.5rem 0;
-  background-color: #21958f;
+  margin-top: 1rem;
+  width: 100%;
+  background-color: #7856ff;
   color: white;
-  border: none;
   border-radius: 0.2rem;
 }
 
@@ -178,7 +220,7 @@ body{
 .container-button{
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 3.5rem;
+  gap: 1rem;
 }
 
 .tombol-todo{
@@ -186,7 +228,7 @@ body{
   margin-top: 1rem;
   margin-bottom: 1rem;
   padding: 0.5rem 0;
-  background-color: #21958f;
+  background-color: #7856ff;
   color: white;
   border: none;
   border-radius: 0.2rem;
@@ -201,7 +243,7 @@ body{
 .container-button2{
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 3.5rem;
+  gap: 1rem;
 }
 
 .tombol-todo2{
@@ -221,17 +263,17 @@ body{
   border: 1px solid #d9e0df;
 }
 
-.row .btn-update{
+.btn-update{
   width: 100%;
-  margin-top: 1rem;
+  margin-top: 0.5rem;
   padding: 0.5rem 0;
-  background-color: #21958f;
+  background-color: #7856ff;
   color: white;
   border: none;
   border-radius: 0.2rem;
 }
 
-.row .btn-cancel{
+.btn-cancel{
   width: 100%;
   margin-top: 0.5rem;
   padding: 0.5rem 0;
@@ -241,13 +283,13 @@ body{
   border-radius: 0.2rem;
 }
 
-.row .btn-update:hover{
+.btn-update:hover{
   background-color: #b3bab9;
   color: black;
   border: 1px solid #d9e0df;
 }
 
-.row .btn-cancel:hover{
+.btn-cancel:hover{
   background-color: #b3bab9;
   color: black;
   border: 1px solid #d9e0df;
