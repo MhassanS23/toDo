@@ -128,6 +128,7 @@ function App() {
               searcH={searcH}
               handleChange={handleChange}
               markDone={markDone}
+              setSearch={setSearch}
               setUpdateData={setUpdateData}
               deleteTask={deleteTask}
               deleteAllTask={deleteAllTask}

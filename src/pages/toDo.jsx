@@ -14,6 +14,7 @@ const ToDo = ({
   toDo,
   searcH,
   handleChange,
+  setSearch,
   markDone,
   setUpdateData,
   deleteTask,
@@ -22,15 +23,18 @@ const ToDo = ({
 }) => {
   const navigate = useNavigate();
   const clickDone = () => {
+    setSearch('');
     navigate("/link-done");
   };
   const clickHandler = () => {
     navigate("/link-add");
   };
   const clickHome = () => {
+    setSearch('');
     navigate("/");
   };
   const clickUncomplete = () => {
+    setSearch('');
     navigate("/link-uncomplete");
   };
   
